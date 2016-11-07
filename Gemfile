@@ -23,12 +23,19 @@ gem 'sqlite3'
 
 gem 'knock', '~> 1.4.2'
 
+# HTTP Client side connection
+gem 'faraday', '0.9.1'
+gem 'faraday_middleware', '0.10.0'
+gem 'faraday-conductivity', '0.3.1'
+gem 'httpclient', '2.6.0.1'
+
 # Dot env
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry', '~> 0.10.4'
+  gem 'pry-nav', '~> 0.2.4'
 
   # Use RSpec for specs
   gem 'rspec-rails', '>= 3.5.0'

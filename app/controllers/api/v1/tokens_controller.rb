@@ -4,32 +4,23 @@ module Api::V1
 
     # GET /tokens
     def index
-      render status: 200
+      render json: current_user, status: 200
     end
 
     # POST /tokens
     def create
-      #call Auth0 service
-      
-      # @token = Token.new(token_params)
-
-      # if @token.save
-      #   render json: @token, status: 200
-      # else
-      #   render json: @token.errors, status: 401
-      # end
-      render status: 200
+      begin
+        response = ::Auth0::AuthenticateService.new(token_params[:email], token_params[:password]).authenticate
+        render json: response.body, status: response.status
+      rescue ::Auth0::Auth0ServiceError => err 
+        render err.message, status: 401
+      end
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_token
-        @token = Token.find(params[:id])
-      end
-
       # Only allow a trusted parameter "white list" through.
       def token_params
-        params.fetch(:token, {})
+        params.permit(:email, :password)
       end
   end
 end
