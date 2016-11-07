@@ -3,9 +3,9 @@ module Auth0
 
     attr_reader :email, :password
 
-    def initialize email, password
-      @email = email
-      @password = password
+    def initialize params
+      @email = params[:email]
+      @password = params[:password]
     end
 
     def authenticate

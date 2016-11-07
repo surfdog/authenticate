@@ -10,7 +10,7 @@ module Api::V1
     # POST /tokens
     def create
       begin
-        response = ::Auth0::AuthenticateService.new(token_params[:email], token_params[:password]).authenticate
+        response = ::Auth0::AuthenticateService.new(token_params.to_h).authenticate
         render json: response.body, status: response.status
       rescue ::Auth0::Auth0ServiceError => err 
         render err.message, status: 401

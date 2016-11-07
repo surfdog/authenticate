@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::TokensController, type: :controller do
 
   let(:valid_parameters) {
-    {email: 'test@test.com', password: 'secret'}
+    {email: 'good@test.com', password: 'good'}
   }
 
   let(:invalid_parameters) {
@@ -36,7 +36,16 @@ RSpec.describe Api::V1::TokensController, type: :controller do
   end
 
   describe "POST #create" do
+    let(:fake_authenticate_service) { double(Auth0::AuthenticateService) }
+
+    before(:each) do
+      allow(Auth0::AuthenticateService).to receive(:new).and_return(fake_authenticate_service)
+      allow(fake_authenticate_service).to receive(:authenticate).and_return(response)
+     end
+
     context "with valid params" do
+      let(:response) { OpenStruct.new(body: 'test body', status: 200) }
+      
       it "returns a valid token" do
         post :create, params: valid_parameters 
         expect(response.status).to eq 200
@@ -44,6 +53,8 @@ RSpec.describe Api::V1::TokensController, type: :controller do
     end
 
     context "with invalid params" do
+      let(:response) { OpenStruct.new(body: 'test body', status: 401) }
+
       it "returns status unauthorized" do
         post :create, params: invalid_parameters 
         expect(response.status).to eq 401
