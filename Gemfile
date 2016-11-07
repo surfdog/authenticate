@@ -32,6 +32,14 @@ gem 'httpclient', '2.6.0.1'
 # Dot env
 gem 'dotenv-rails', groups: [:development, :test]
 
+# To protect our API from DDoS, brute force attacks, hammering, or even to monetize with paid usage limits, we can use a Rake middleware called Rack::Attack. The rack-attack gem was released by Kickstarter, and it allows us to:
+
+# whitelist: Allowing it to process normally if certain conditions are true
+# blacklist: Sending a denied message instantly for certain requests
+# throttle: Checking if the user is within their allowed usage
+# track: Tracking this request to be able to log certain information about our requests
+gem 'rack-attack', '5.0.1'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry', '~> 0.10.4'

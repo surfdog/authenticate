@@ -27,6 +27,8 @@ module Authenticate
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.middleware.use Rack::Attack
+
      # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += Dir[
         "#{config.root}/lib"
