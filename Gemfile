@@ -19,7 +19,7 @@ gem 'sqlite3'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors', '~> 0.4.0'
 
 gem 'knock', '~> 1.4.2'
 
@@ -52,7 +52,7 @@ group :development do
 end
 
 group :test do
-  gem 'rails-controller-testing'
+  gem 'rails-controller-testing', '~> 1.0.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
