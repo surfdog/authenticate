@@ -30,7 +30,7 @@ gem 'faraday-conductivity', '0.3.1'
 gem 'httpclient', '2.6.0.1'
 
 # Dot env
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 
 # To protect our API from DDoS, brute force attacks, hammering, or even to monetize with paid usage limits, we can use a Rake middleware called Rack::Attack. The rack-attack gem was released by Kickstarter, and it allows us to:
 
