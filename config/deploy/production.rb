@@ -42,7 +42,7 @@ server '54.153.108.164', user: 'authenticate', roles: %w{app db}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/home/authenticate/.ssh/tcm-ssh-key.pem),
+   keys: %w(/Users/marc/.ssh/tcm-ssh-key.pem),
    user: 'authenticate',
    forward_agent: false,
    auth_methods: %w(publickey password)
