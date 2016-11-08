@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '54.153.108.164', user: 'authenticate', roles: %w{app db}
+# server '54.153.108.164', user: 'authenticate', roles: %w{app db}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -41,21 +41,21 @@ server '54.153.108.164', user: 'authenticate', roles: %w{app db}
 #
 # Global options
 # --------------
- set :ssh_options, {
-   keys: %w(/Users/marc/.ssh/cm-ssh-key.pem),
-   forward_agent: false,
-   auth_methods: %w(publickey password)
- }
+ # set :ssh_options, {
+ #   keys: %w(/Users/marc/.ssh/cm-ssh-key.pem),
+ #   forward_agent: false,
+ #   auth_methods: %w(publickey password)
+ # }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server '54.153.108.164',
+  user: 'authenticate',
+  roles: %w{app db},
+  ssh_options: {
+    user: 'authenticate', # overrides user setting above
+    keys: %w(/home/authenticate/.ssh/id_rsa),
+    forward_agent: false,
+    auth_methods: %w(publickey password)
+    # password: 'please use keys'
+  }
