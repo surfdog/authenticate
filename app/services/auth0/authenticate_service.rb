@@ -13,7 +13,7 @@ module Auth0
     rescue => err
       msg = "API Authentication: #{err.message}"
       logger.error msg
-      logger.debug err.backtrace.join("\n")
+      logger.debug err.backtrace.join('\n')
       raise Auth0ServiceError, msg
     end
 
@@ -21,12 +21,12 @@ module Auth0
 
     def post_params
       {
-        "client_id":   "#{ENV['AUTH0_CLIENT_ID']}",
-        "username":    "#{email}",
-        "password":    "#{password}",
-        "connection":  "Username-Password-Authentication",
-        "grant_type":  "password",
-        "scope":       "openid"
+        'client_id':   "#{ENV['AUTH0_CLIENT_ID']}",
+        'username':    "#{email}",
+        'password':    "#{password}",
+        'connection':  'Username-Password-Authentication',
+        'grant_type':  'password',
+        'scope':       'openid'
       }
     end
   end
