@@ -1,24 +1,9 @@
-# README
+# Authenticate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+Ensure that you export the following enviroment variables before running the app or specs:
 
-* Ruby version
+* AUTH0_CLIENT_ID
+* AUTH0_CLIENT_SECRET
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
