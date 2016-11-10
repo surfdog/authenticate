@@ -67,6 +67,10 @@ group :development do
 
   # Remove the following if your server does not use RVM
   gem 'capistrano-rvm'
+
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do

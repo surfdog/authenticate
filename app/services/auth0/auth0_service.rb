@@ -12,7 +12,7 @@ module Auth0
 
     AUTH0_HOST      = ENV['AUTH0_DOMAIN']
     LOGIN_URL       = '/oauth/ro'
-  
+
     attr_reader :parameters
 
     def initialize parameters
@@ -31,7 +31,7 @@ module Auth0
     end
 
     def get_connection
-      @connection ||= Faraday.new(url: "https://" + AUTH0_HOST) do |conn|
+      @connection ||= Faraday.new(url: 'https://' + AUTH0_HOST) do |conn|
         conn.request :json
         conn.use :extended_logging, logger: Rails.logger
         conn.response :json, content_type: /\bjson$/
